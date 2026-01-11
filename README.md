@@ -2,18 +2,18 @@
 
 A Graph Neural Network (GNN) implementation for detecting illicit transactions in financial networks using the Elliptic Bitcoin dataset.
 
-## 📌 Project Goal
+## Project Goal
 To improve the detection of "money laundering" patterns (layering/smurfing) by analyzing transaction relationships rather than just individual transaction features. This project uses Graph Attention Networks (GAT) to aggregate risk signals from neighboring nodes.
 
 
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 * **Model:** Graph Attention Network (GATv2) with multi-head attention.
 * **Graph Type:** Directed Graph (Nodes = Transactions, Edges = Flow of funds).
 * **Data:** Elliptic Bitcoin Dataset (203k nodes, 234k edges).
 * **Explainability:** GNNExplainer is used to identify the sub-graph most responsible for a "high-risk" classification.
 
-## 🛠️ Implementation Details
+## Implementation Details
 
 ### 1. Data Processing
 * Converts tabular transaction data into a `torch_geometric.data.Data` object.
@@ -30,7 +30,7 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 * The model is served via a REST API.
 * The API accepts a Node ID and retrieves its $k$-hop neighborhood for real-time inference.
 
-## 📊 Performance
+## Performance
 *Currently benchmarking. The table below will be updated with final test set results.*
 
 | Metric | GAT Model (Ours) | Baseline (Logistic Regression) |
