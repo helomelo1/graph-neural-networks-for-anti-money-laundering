@@ -1,10 +1,5 @@
 # GNN-Anti-Money-Laundering
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-
 A Graph Neural Network (GNN) implementation for detecting illicit transactions in financial networks using the Elliptic Bitcoin dataset.
 
 ## 📌 Project Goal
@@ -36,11 +31,13 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 * The API accepts a Node ID and retrieves its $k$-hop neighborhood for real-time inference.
 
 ## 📊 Performance
-| Metric | GAT Model | Baseline (Logistic Regression) |
+*Currently benchmarking. The table below will be updated with final test set results.*
+
+| Metric | GAT Model (Ours) | Baseline (Logistic Regression) |
 | :--- | :--- | :--- |
-| **Precision** | 0.88 | 0.62 |
-| **Recall** | 0.79 | 0.45 |
-| **F1-Score** | 0.83 | 0.52 |
+| **Precision** | *TBD* | *TBD* |
+| **Recall** | *TBD* | *TBD* |
+| **F1-Score** | *TBD* | *TBD* |
 
 ## 📁 Directory Structure
 ```text
