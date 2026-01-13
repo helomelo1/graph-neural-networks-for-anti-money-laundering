@@ -57,3 +57,12 @@ def save_model(model, path='models/best_model.pth'):
     torch.save(model.state_dict(), path)
 
     print(f"Model saved to {path}")
+
+
+def get_device():
+    if torch.backends.mps.is_available():
+        return torch.device("mps")
+    elif torch.cuda.is_available():
+        return torch.device("cuda")
+    else:
+        return torch.device("cpu")
