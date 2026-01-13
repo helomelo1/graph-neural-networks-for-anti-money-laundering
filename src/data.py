@@ -26,7 +26,7 @@ def process_data():
     df['dest_id'] = df['dest_str'].map(account_map)
 
     src_tensor = torch.tensor(df['src_id'].values, dtype=torch.long)
-    dst_tensor = torch.tensor(df['dst_id'].values, dtype=torch.long)
+    dst_tensor = torch.tensor(df['dest_id'].values, dtype=torch.long)
     edge_index = torch.stack([src_tensor, dst_tensor], dim=0)
 
     print("Preparing Features (X)..")
@@ -34,8 +34,8 @@ def process_data():
     num_nodes = len(all_accounts)
     node_features = torch.zeros((num_nodes, 2), dtype=torch.float)
 
-    sent_stats = df.groupby('src_id')['Amount Recieved'].sum()
-    recv_stats = df.groupby('dst_id')['Amount Recieved'].sum()
+    sent_stats = df.groupby('src_id')['Amount Received'].sum()
+    recv_stats = df.groupby('dest_id')['Amount Received'].sum()
 
     node_features[sent_stats.index, 0] = torch.tensor(sent_stats.values, dtype=torch.float)
     node_features[recv_stats.index, 1] = torch.tensor(recv_stats.values, dtype=torch.float)

@@ -1,7 +1,6 @@
 # Ignore data files
 data/
 *.csv
-*.pt
 *.pth
 
 # Ignore system files
