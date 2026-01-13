@@ -41,15 +41,15 @@ def get_train_val_test_masks(data, train_ratio=0.7, val_ratio=0.15):
         random_state=42
     )
 
-    train_dataset = torch.zeros(num_nodes,  dtype=torch.bool)
-    val_dataset = torch.zeros(num_nodes, dtype=torch.bool)
-    test_dataset = torch.zeros(num_nodes, dtype=torch.bool)
+    train_mask = torch.zeros(num_nodes,  dtype=torch.bool)
+    val_mask = torch.zeros(num_nodes, dtype=torch.bool)
+    test_mask = torch.zeros(num_nodes, dtype=torch.bool)
 
-    train_dataset[train_idx] = True 
-    val_dataset[val_idx] = True 
-    test_dataset[test_idx] = True 
+    train_mask[train_idx] = True 
+    val_mask[val_idx] = True 
+    test_mask[test_idx] = True 
 
-    return train_dataset, val_dataset, test_dataset
+    return train_mask, val_mask, test_mask
 
 
 def save_model(model, path='models/best_model.pth'):
