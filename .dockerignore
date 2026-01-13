@@ -1,0 +1,6 @@
+data/
+models/*.pth
+venv/
+.git/
+__pycache__/
+.DS_Store
