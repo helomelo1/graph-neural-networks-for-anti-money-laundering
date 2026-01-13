@@ -1,12 +1,12 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import GATv2Conv, Linear
+from torch_geometric.nn import SAGEConv, GATv2Conv, Linear
 
 
-class GraphNeuralNet(nn.Module):
+class GraphNeuralNet1(nn.Module):
     def __init__(self, num_node_features, hidden_channels, num_classes, heads=0):
-        super(GraphNeuralNet, self).__init__()
+        super(GraphNeuralNet1, self).__init__()
 
         self.lin_in = Linear(num_node_features, hidden_channels)
         self.gat1 = GATv2Conv(hidden_channels, hidden_channels, heads=heads, dropout=0.6)
@@ -27,4 +27,20 @@ class GraphNeuralNet(nn.Module):
 
         x = self.lin_out(x)
 
+        return F.log_softmax(x, dim=1)
+    
+
+class GraphNeuralNet(nn.Module):
+    def __init__(self, num_node_features, hidden_channels, num_classes):
+        super(GraphNeuralNet, self).__init__()
+        self.conv1 = SAGEConv(num_node_features, hidden_channels)
+        self.conv2 = SAGEConv(hidden_channels, num_classes)
+
+    def forward(self, x, edge_index):
+        x = self.conv1(x, edge_index)
+        x = F.relu(x)
+        x = F.dropout(x, p=0.5, training=self.training)
+        
+        x = self.conv2(x, edge_index)
+        
         return F.log_softmax(x, dim=1)

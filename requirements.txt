@@ -1,5 +1,5 @@
-torch
-torch-geometric
+torch==2.5.1
+torch-geometric==2.6.1
 numpy
 pandas
 scikit-learn

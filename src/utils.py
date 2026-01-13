@@ -1,15 +1,33 @@
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 import os
 from sklearn.model_selection import train_test_split
+from torch_geometric.data import Data
+
+
+class FocalLoss(nn.Module):
+    def __init__(self, alpha=1, gamma=2):
+        super(FocalLoss, self).__init__()
+        self.alpha = alpha
+        self.gamma = gamma
+
+    def forward(self, inputs, targets):
+        ce_loss = F.cross_entropy(inputs, targets, reduction="none")
+        pt = torch.exp(-ce_loss)
+        focal_loss = self.alpha * (1 - pt)**self.gamma * ce_loss
+
+        return focal_loss.mean()
 
 
 def load_data(path='dataset/ibm_processed.pt', device='cpu'):
     if not os.path.exists(path):
         raise FileNotFoundError("Come On! You can do better than this.")
     
-    data = torch.load(path)
-    print(f"# Nodes: f{data.num_nodes}")
-    print(f"# Edges: f{data.num_edges}")
+    torch.serialization.add_safe_globals([Data])
+    data = torch.load(path, map_location=device)
+    print(f"# Nodes: {data.num_nodes}")
+    print(f"# Edges: {data.num_edges}")
     return data.to(device)
 
 
