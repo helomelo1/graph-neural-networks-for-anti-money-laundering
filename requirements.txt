@@ -3,3 +3,6 @@ torch-geometric
 numpy
 pandas
 scikit-learn
+fastapi
+pydantic
+uvicorn
