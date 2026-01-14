@@ -41,13 +41,13 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 
 ## 📁 Directory Structure
 ```text
-├── dataset/        # Processed dataset files
-├── models/         # Saved .pth model weights
+├── dataset/        
+├── models/         
 ├── src/
-│   ├── model.py    # PyTorch Geometric GAT implementation
-│   ├── train.py    # Training and evaluation pipeline
+│   ├── model.py    
+│   ├── train.py    
 │   ├── data.py 
-│   └── utils.py    # Data loaders and helper functions
-├── app.py          # FastAPI entry point
-├── Dockerfile      # Containerization configuration
+│   └── utils.py    
+├── app.py          
+├── Dockerfile      
 └── requirements.txt
