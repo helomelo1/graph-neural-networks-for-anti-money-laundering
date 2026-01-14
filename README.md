@@ -41,7 +41,7 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 
 ## 📁 Directory Structure
 ```text
-├── data/           # Raw and processed dataset files
+├── dataset/        # Processed dataset files
 ├── models/         # Saved .pth model weights
 ├── src/
 │   ├── model.py    # PyTorch Geometric GAT implementation
