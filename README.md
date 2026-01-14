@@ -33,11 +33,11 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 ## Performance
 *Currently benchmarking. The table below will be updated with final test set results.*
 
-| Metric | GAT Model (Ours) | Baseline (Logistic Regression) |
+| Metric | GAT Model |
 | :--- | :--- | :--- |
-| **Precision** | *TBD* | *TBD* |
-| **Recall** | *TBD* | *TBD* |
-| **F1-Score** | *TBD* | *TBD* |
+| **Precision** | *TBD* |
+| **Recall** | *TBD* |
+| **F1-Score** | *TBD* |
 
 ## 📁 Directory Structure
 ```text
