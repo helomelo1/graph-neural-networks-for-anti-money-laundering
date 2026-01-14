@@ -34,7 +34,7 @@ To improve the detection of "money laundering" patterns (layering/smurfing) by a
 *Currently benchmarking. The table below will be updated with final test set results.*
 
 | Metric | GAT Model |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | **Precision** | *TBD* |
 | **Recall** | *TBD* |
 | **F1-Score** | *TBD* |
